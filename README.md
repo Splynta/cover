@@ -2,6 +2,7 @@
 Base app for cover4
 
 ## Notes
+- Uncomment the keyboard plugin in app.js.
 
 ## Issues
 
