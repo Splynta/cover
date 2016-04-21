@@ -2,7 +2,7 @@
     <ion-content padding="true">
         <!-- Image to cover the top -->
         <p>{{policy.title}} information</p>
-        <p><a href="http://{{policy.href}}">Visit Site</a></p>
+        <p><a ng-href="http://{{policy.href}}" onclick="window.open(this.href, '_system'); return false;">Visit Site</a></p>
         <p>Related Information Links</p>
     </ion-content>
 </ion-view>
