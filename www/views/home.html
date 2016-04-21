@@ -1,0 +1,19 @@
+<ion-view view-title="Welcome to <span class='text-orange'>Cover4</span>">
+    <ion-content>
+        <div class="page-heading text-center">
+            <div class="icon">
+                <i class="ion-ios-flower-outline"></i>
+            </div>
+            <h2>Welcome to Cover4</h2>
+            <p>Please select a policy below</p>
+        </div>
+        <h3 class="padding-width">Our Policies</h3>
+        
+        <!-- policies list -->
+        <ion-list>
+            <ion-item ng-repeat="policy in policies track by $index" ui-sref="app.home.policydetail({pid: policy.id})">
+                {{policy.title}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,1 +1,52 @@
-/* Empty. Add your own CSS if you like */
+.bar.cover4-header {
+    background: #222;
+    color: #FFF;
+}
+
+.bar-side-menu {
+    background: #FE9D00;
+    color: #FFF;
+}
+
+.bar-side-menu .title {
+    color: #FFF;
+}
+
+.page-heading {
+    padding: 40px 0;
+    background: linear-gradient(to bottom, #FF8008 , #FFC837);
+    background: #FE9D00;
+    color: #FFF;
+}
+
+.page-heading h2 {
+    color: #FFF;
+    font-weight: 300;
+}
+
+.page-heading .icon i {
+    font-size: 66px;
+    color: white;
+}
+
+.page-heading p {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.text-orange {
+    color: #FE9D00;
+}
+
+.button.button-clear {
+    color: #FFF;
+}
+
+.bg-orange {
+    background: #FE9D00;
+    color: #FFF;
+}
+
+.padding-width {
+    padding: 0 14px;
+}
