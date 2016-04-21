@@ -1,3 +1,7 @@
+ion-side-menu {
+    background: #222 !important;
+}
+
 .bar.cover4-header {
     background: #222;
     color: #FFF;
@@ -24,8 +28,30 @@
     font-weight: 300;
 }
 
+.side-menu-logo i,
 .page-heading .icon i {
     font-size: 66px;
+    color: white;
+}
+
+.side-menu-logo {
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+.side-menu-logo h3 {
+    color: white;
+    font-weight: 300;
+}
+
+.side-menu-list ion-item {
+    border-left: none;
+    border-right: none;
+    border-color: #333;
+}
+
+.side-menu-list ion-item a.item-content {
+    background: #222;
     color: white;
 }
 
