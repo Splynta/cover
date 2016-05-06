@@ -7,5 +7,24 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "phonegap-plugin-push": {
+        "source": {
+            "type": "registry",
+            "id": "phonegap-plugin-push"
+        },
+        "is_top_level": true,
+        "variables": {
+            "SENDER_ID": "974156829255"
+        }
+    },
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/apache/cordova-plugin-whitelist",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

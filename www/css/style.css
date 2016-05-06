@@ -36,7 +36,7 @@ ion-side-menu {
 
 .side-menu-logo {
     padding-top: 80px;
-    padding-bottom: 40px;
+    /*padding-bottom: 40px;*/
 }
 
 .side-menu-logo h3 {
@@ -75,4 +75,33 @@ ion-side-menu {
 
 .padding-width {
     padding: 0 14px;
+}
+
+.list-policy-title,
+.quick-link {
+    display: inline-block;
+}
+
+.list-policy-title {
+    width: 91%;
+}
+
+.quick-link {
+    width: 7%;
+    text-align: right;
+}
+
+.quick-link i {
+    color: #FE9D00;
+    font-size: 18px;
+}
+
+.menu-social-media {
+    color: white;
+    font-size: 24px;
+    padding: 20px;
+}
+
+.menu-social-media i {
+    padding: 0 8px;
 }

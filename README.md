@@ -8,11 +8,9 @@ Base app for cover4
 
 ## Todo
 - Add push notifications
-- Make sure web links load up in browser
 - Fill in information
 - Create contact page
-- Add Facebook & Twitter buttons
--- Load up the facebook & twitters apps
+- Load up the facebook & twitters apps from the links
 
 ## Install
 The following features are ommitted from the git and need to be installed.
@@ -23,3 +21,5 @@ The following features are ommitted from the git and need to be installed.
 
 ### Plugins
 - cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
+- ionic add ionic-platform-web-client
+- ionic plugin add phonegap-plugin-push --variable SENDER_ID="GCM_PROJECT_NUMBER"

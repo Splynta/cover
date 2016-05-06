@@ -1,16 +1,39 @@
+angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controllers', 'cover4App.services']) 
 
-angular.module('cover4App', ['ionic', 'cover4App.controllers', 'cover4App.services']) 
+.run(function($ionicPlatform, $http) {
+    $ionicPlatform.ready(function() {
+        /*if(window.cordova && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            cordova.plugins.Keyboard.disableScroll(true);
+        }*/
+        if(window.StatusBar) {
+            StatusBar.styleDefault();
+        }
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    /*if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
-    }*/
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
+        // Setup Ionic push notifications
+        var push = new Ionic.Push({
+            "debug": true
+        });
+        var deviceToken = null;
+        push.register(function(token) {
+            console.log("My Device token:",token.token);
+            push.saveToken(token);  // persist the token in the Ionic Platform
+            
+            // Send token to url to save to database table
+            var url = "http://www.standard.dacaninternet.co.uk/registertoken.php";
+            var post = $http({
+                method: 'POST',
+                url: url,
+                data: {
+                    token: token.token
+                },
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            });
+            post.success(function(data) {
+                console.log('http post success'); 
+            });
+        });
+    });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
