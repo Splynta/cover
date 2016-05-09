@@ -105,3 +105,27 @@ ion-side-menu {
 .menu-social-media i {
     padding: 0 8px;
 }
+
+.contact-page,
+.contact a {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-size: 15px;
+    color: black;
+}
+
+.contact a {
+    text-decoration: none;
+}
+
+.contact {
+    padding: 8px 12px;
+}
+
+.contact h3 {
+    font-family: "Open Sans";
+    font-weight: 300;
+    font-size: 20px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 4px;
+}

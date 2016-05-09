@@ -5,6 +5,7 @@ Base app for cover4
 - Uncomment the keyboard plugin in app.js.
 
 ## Issues
+- May need to perform ionic resources --icon to get the icons right, or it won't build properly.
 
 ## Todo
 - Add push notifications

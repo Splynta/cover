@@ -7,25 +7,14 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.cover333796"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.cover333796"
-        },
         "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.ionicframework.cover333796"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.cover333796"
-        },
-        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.ionicframework.cover333796"
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ionicframework.cover333796"
         },
-        "ionic-plugin-keyboard": {
+        "phonegap-plugin-push": {
+            "SENDER_ID": "974156829255",
             "PACKAGE_NAME": "com.ionicframework.cover333796"
         }
     },
