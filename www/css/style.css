@@ -97,9 +97,12 @@ ion-side-menu {
 }
 
 .menu-social-media {
-    color: white;
     font-size: 24px;
     padding: 20px;
+}
+
+.menu-social-media a {
+    color: white;
 }
 
 .menu-social-media i {

@@ -1,4 +1,4 @@
-angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controllers', 'cover4App.services']) 
+angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controllers', 'cover4App.services', 'ngCordova']) 
 
 .run(function($ionicPlatform, $http) {
     $ionicPlatform.ready(function() {
