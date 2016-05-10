@@ -22,10 +22,10 @@
             Manchester,<br>
             M25 3HB.
         </div>
-        <div class="contact contact-social">
+        <div class="contact contact-social" ng-controller="AppCheckCtrl">
             <h3>Social Media</h3>
-            <a href="fb://facewebmodal/f?href=https://www.facebook.com/cover4insurance" onclick="window.open(this.href, '_system'); return false;"><i class="ion-social-facebook"></i> Facebook</a><br>
-            <a href="twitter://user?screen_name=cover4insurance" onclick="window.open(this.href, '_system'); return false;"><i class="ion-social-twitter"></i> Twitter</a>
+            <a ng-click="loadFacebook('cover4insurance')"><i class="ion-social-facebook"></i> Facebook</a><br>
+            <a ng-click="loadTwitter('cover4insurance')"><i class="ion-social-twitter"></i> Twitter</a>
         </div>
     </ion-content>
 </ion-view>

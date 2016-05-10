@@ -3,7 +3,14 @@ Base app for cover4
 
 ## Notes
 - Uncomment the keyboard plugin in app.js.
-- Uncomment cordova.js in index.html
+- May need to add some code to the platforms/ios/<appname>/<appname>-Info.plist for the opening of the applications for ios9
+```
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>twitter</string>
+    <string>facebook</string>
+</array>
+```
 
 ## Issues
 - May need to perform ionic resources --icon to get the icons right, or it won't build properly.
@@ -27,3 +34,5 @@ The following features are ommitted from the git and need to be installed.
 - ionic add ionic-platform-web-client
 - ionic plugin add phonegap-plugin-push --variable SENDER_ID="GCM_PROJECT_NUMBER"
 - bower install ngCordova - might not need
+- cordova plugin add https://github.com/ohh2ahh/AppAvailability.git
+- cordova plugin add org.apache.cordova.device

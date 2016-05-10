@@ -15,7 +15,7 @@ angular.module('cover4App.services', [])
         },
         get: function(id) {
             for(var x = 0; x < list.length; x++) {
-                if(list[x].id == x) {
+                if(list[x].id == id) {
                     return list[x];
                 }
             }

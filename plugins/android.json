@@ -16,6 +16,12 @@
         "phonegap-plugin-push": {
             "SENDER_ID": "974156829255",
             "PACKAGE_NAME": "com.ionicframework.cover333796"
+        },
+        "cordova-plugin-appavailability": {
+            "PACKAGE_NAME": "com.ionicframework.cover333796"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.cover333796"
         }
     },
     "dependent_plugins": {}

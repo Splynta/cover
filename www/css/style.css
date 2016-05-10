@@ -2,9 +2,15 @@ ion-side-menu {
     background: #222 !important;
 }
 
-.bar.cover4-header {
+.bar.cover4-header,
+[nav-bar="active"] .bar.cover4-header {
+    background: #222 !important;
+    color: #FFF !important;
+}
+
+.bar.cover4-header .button.back-button {
     background: #222;
-    color: #FFF;
+    color: #FE9D00;
 }
 
 .bar-side-menu {

@@ -16,9 +16,9 @@
                 <img src="img/c4-icon.png">
                 <h3>Cover4 Insurance</h3>
             </div>
-            <div class="text-center menu-social-media">
-                <a href="fb://facewebmodal/f?href=https://www.facebook.com/cover4insurance" onclick="window.open(this.href, '_system'); return false;"><i class="ion-social-facebook"></i></a>
-                <a href="twitter://user?screen_name=cover4insurance" onclick="window.open(this.href, '_system'); return false;"><i class="ion-social-twitter"></i></a>
+            <div class="text-center menu-social-media" ng-controller="AppCheckCtrl">
+                <a ng-click="loadFacebook('cover4insurance')"><i class="ion-social-facebook"></i></a>
+                <a ng-click="loadTwitter('cover4insurance')"><i class="ion-social-twitter"></i></a>
             </div>
             <ion-list class="side-menu-list">
                 <ion-item menu-close ui-sref="app.home">

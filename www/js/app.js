@@ -55,9 +55,9 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
         }
     })
     .state('app.home.policydetail', {
-        url: '/policydetail/:pid',
+        url: '/policydetail/:id',
         params: {
-            pid: 0
+            id: 0
         },
         views: {
             'menuContent@app': {
