@@ -18,9 +18,10 @@ Base app for cover4
 ## Todo
 - Add push notifications
 - Fill in information pages
-- Load up the facebook & twitters apps from the links. Load up web browser if they aren't installed
 - Create factory for contact information
-- Add back button to the page information, so goes back to home.
+- Check for internet connection before sending push notification token
+- Check whether they have turned off push notifications and remove from database if they have
+- Create Splashscreen
 
 ## Install
 The following features are ommitted from the git and need to be installed.
@@ -36,3 +37,4 @@ The following features are ommitted from the git and need to be installed.
 - bower install ngCordova - might not need
 - cordova plugin add https://github.com/ohh2ahh/AppAvailability.git
 - cordova plugin add org.apache.cordova.device
+- cordova plugin add org.apache.cordova.network-information

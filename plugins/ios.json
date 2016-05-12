@@ -22,6 +22,9 @@
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.ionicframework.cover333796"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.cover4insurance.main"
         }
     },
     "dependent_plugins": {}
