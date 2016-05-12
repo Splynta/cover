@@ -138,3 +138,18 @@ ion-side-menu {
     border-bottom: 1px solid #444;
     padding-bottom: 4px;
 }
+
+.contact .ion-social {
+    font-size: 26px;
+    border: 1px solid #222;
+    border-radius: 4px;
+    margin-top: 10px;
+    display: inline-block;
+    padding: 6px 14px;
+    color: #222;
+    margin-right: 8px;
+}
+
+.contact .ion-social-twitter {
+    padding: 6px 8px;
+}

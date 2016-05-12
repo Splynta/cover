@@ -16,10 +16,9 @@ Base app for cover4
 - May need to perform ionic resources --icon to get the icons right, or it won't build properly.
 
 ## Todo
-- Add push notifications
+- Make sure push notifications aren't in debug mode
 - Fill in information pages
 - Create factory for contact information
-- Check for internet connection before sending push notification token
 - Check whether they have turned off push notifications and remove from database if they have
 - Create Splashscreen
 

@@ -5,6 +5,11 @@ angular.module('cover4App.controllers', [])
 
 .controller('PoliciesCtrl', function($scope, Policies) {
     $scope.policies = Policies.getAll();
+    
+    $scope.loadUrl = function(id) {
+        var policy = Policies.get(id);
+        window.open(policy.href, '_system');
+    };
 })
 
 .controller('PolicyDetailCtrl', function($scope, $stateParams, Policies) {

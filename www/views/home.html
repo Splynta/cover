@@ -11,10 +11,11 @@
         
         <!-- policies list -->
         <ion-list>
-            <ion-item ng-repeat="policy in policies track by $index" ui-sref="app.home.policydetail({id: policy.id})">
+            <!--<ion-item ng-repeat="policy in policies track by $index" ui-sref="app.home.policydetail({id: policy.id})">-->
+            <ion-item ng-repeat="policy in policies track by $index" ng-click="loadUrl(policy.id)">
                 <div class="list-policy-title">{{policy.title}}</div> 
                 
-                <a class="quick-link" ng-href="{{policy.href}}" onclick="window.open(this.href, '_system'); return false;"><i class="ion-ios-browsers-outline"></i></a>
+                <!--<a class="quick-link" ng-href="{{policy.href}}" onclick="window.open(this.href, '_system'); return false;"><i class="ion-ios-browsers-outline"></i></a>-->
             </ion-item>
         </ion-list>
     </ion-content>
