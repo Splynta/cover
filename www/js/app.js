@@ -1,6 +1,6 @@
-angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controllers', 'cover4App.services', 'ngCordova']) 
+angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controllers', 'cover4App.services', 'ngCordova', 'ngStorage']) 
 
-.run(function($ionicPlatform, $ionicPopup, $http) {
+.run(function($ionicPlatform, $ionicPopup, $http, $cordovaPush, $rootScope, Notifications) {
     $ionicPlatform.ready(function() {
         /*if(window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -14,7 +14,19 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
         if(window.Connection) {
             if(navigator.connection.type != Connection.NONE) {
                 var push = new Ionic.Push({
-                    "debug": true
+                    "debug": true,
+                    "onNotification": function(notification) {
+                        var note = {
+                            read: false,
+                            title: notification.title,
+                            message: notification.text
+                        }
+                        
+                        Notifications.add(note);
+                        $rootScope.$apply();
+                        $rootScope.$broadcast("unreadCountChange");
+                        $ionicPopup.alert({ title: 'New Notification', content: notification.text});
+                    }
                 });
 
                 var deviceToken = null;
@@ -37,6 +49,12 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
                 });
             }
         }
+        
+        $rootScope.$on('$cordovaPush:notificationReceived', function(event, notification) {
+            if (notification.alert) {
+                navigator.notification.alert(notification.alert);
+            }
+        });
     });
 })
 
@@ -75,7 +93,8 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
         url: '/studentinfo',
         views: {
             'menuContent': {
-                templateUrl: 'views/studentinfo.html'
+                templateUrl: 'views/studentinfo.html',
+                controller: 'StudentInfoCtrl'
             }
         }
     })
@@ -85,6 +104,16 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
         views: {
             'menuContent': {
                 templateUrl: 'views/contact.html'
+            }
+        }
+    })
+    
+    .state('app.notifications', {
+        url: '/notifications',
+        views: {
+            'menuContent': {
+                templateUrl: 'views/notifications.html',
+                controller: 'NotificationCtrl'
             }
         }
     })

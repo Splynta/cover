@@ -1,6 +1,11 @@
 angular.module('cover4App.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicSideMenuDelegate) {
+.controller('AppCtrl', function($scope, $ionicSideMenuDelegate, Notifications) {
+    $scope.unreadCount = Notifications.getUnreadCount();
+    
+    $scope.$on("unreadCountChange", function() {
+        $scope.unreadCount = Notifications.getUnreadCount();
+    });
 })
 
 .controller('PoliciesCtrl', function($scope, Policies) {
@@ -52,5 +57,33 @@ angular.module('cover4App.controllers', [])
                 window.open('https://www.facebook.com/' + link, '_system', 'location=no');
             }
         );
+    };
+})
+
+.controller('NotificationCtrl', function($scope, $rootScope, Notifications) {
+    $scope.$on('$ionicView.enter', function () {
+        Notifications.markAllRead();
+        $rootScope.$broadcast("unreadCountChange");
+    });
+    
+    $scope.list = Notifications.getAll(); 
+    
+    $scope.clearList = function() {
+        Notifications.clear();
+        $scope.list = [];
+    };
+})
+
+.controller('StudentInfoCtrl', function($scope) {
+    $scope.links = [
+        { title: 'Security Tips: While You\'re Away', href: 'http://www.cover4insurance.com/security-while-away/' },
+        { title: 'Living in a Privately Rented Student House', href: 'http://www.cover4insurance.com/private-student-house/'},
+        { title: 'Top 5 Security Tips from Greater Manchester Police Twitter Chat', href: 'http://www.cover4insurance.com/top-5-safety-tips-twitter/'},
+        { title: 'Safety Advice: On a Night Out', href: 'http://www.cover4insurance.com/night-out-safety-tips/'},
+        { title: 'Student Security Tips—Ireland', href: 'http://www.cover4insurance.com/irish-student-security-tips'}
+    ];
+    
+    $scope.openLink = function(link) {
+        window.open(link, '_system', 'location=no');
     };
 })

@@ -1,5 +1,14 @@
 <ion-view view-title="Student Information">
-    <ion-content padding="true">
-        <h1>Student Information Links</h1>
+    <ion-content>
+        <div class="page-heading text-center">
+            <h2>Student Information</h2>
+            <p>Helpful security advice for students</p>
+        </div>
+        
+        <ion-list ng-repeat="link in links">
+            <ion-item class="item-text-wrap" ng-click="openLink(link.href)">
+                {{ link.title }}
+            </ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>

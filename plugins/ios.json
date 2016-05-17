@@ -10,10 +10,6 @@
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.cover333796"
         },
-        "phonegap-plugin-push": {
-            "SENDER_ID": "974156829255",
-            "PACKAGE_NAME": "com.ionicframework.cover333796"
-        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ionicframework.cover333796"
         },
@@ -24,6 +20,13 @@
             "PACKAGE_NAME": "com.ionicframework.cover333796"
         },
         "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.cover4insurance.main"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "974156829255",
+            "PACKAGE_NAME": "com.cover4insurance.main"
+        },
+        "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.cover4insurance.main"
         }
     },

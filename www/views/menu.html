@@ -17,8 +17,8 @@
                 <h3>Cover4 Insurance</h3>
             </div>
             <div class="text-center menu-social-media" ng-controller="AppCheckCtrl">
-                <a ng-click="loadFacebook('cover4insurance')"><i class="ion-social-facebook"></i></a>
-                <a ng-click="loadTwitter('cover4insurance')"><i class="ion-social-twitter"></i></a>
+                <a class="side-menu-social" ng-click="loadFacebook('cover4insurance')"><i class="ion-social-facebook"></i></a>
+                <a class="side-menu-social side-menu-twitter" ng-click="loadTwitter('cover4insurance')"><i class="ion-social-twitter"></i></a>
             </div>
             <ion-list class="side-menu-list">
                 <ion-item menu-close ui-sref="app.home">
@@ -29,6 +29,9 @@
                 </ion-item> 
                 <ion-item menu-close ui-sref="app.contact">
                     Contact
+                </ion-item>
+                <ion-item menu-close ui-sref="app.notifications">
+                    Notifications <span class="unread-count" ng-show="unreadCount > 0">{{ unreadCount }}</span>
                 </ion-item>
             </ion-list>
         </ion-content>

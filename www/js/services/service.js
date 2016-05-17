@@ -24,3 +24,38 @@ angular.module('cover4App.services', [])
         }
     }
 })
+
+.factory('Notifications', function($localStorage) {
+    $localStorage = $localStorage.$default({
+        notes: [] 
+    });
+    
+    return {
+        getAll: function() {
+            return $localStorage.notes;
+        },
+        add: function(note) {
+            $localStorage.notes.push(note);
+        },
+        clear: function() {
+            $localStorage.$reset();
+        },
+        getUnreadCount: function() {
+            var count = 0;
+            for(var x = 0; x < $localStorage.notes.length; x++) {
+                if(!$localStorage.notes[x].read) {
+                    count++;
+                    console.log($localStorage.notes[x].read);
+                } 
+            }
+            return count;
+        },
+        markAllRead: function() {
+            for (var x = 0; x < $localStorage.notes.length; x++) {
+                if(!$localStorage.notes[x].read) {
+                    $localStorage.notes[x].read = true;
+                }
+            }
+        }
+    }
+})

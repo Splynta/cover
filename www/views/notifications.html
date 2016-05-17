@@ -1,0 +1,19 @@
+<ion-view view-title="Notifications <span class='text-orange'>Cover4</span>">
+    <ion-content>
+        <div class="page-heading text-center">
+            <h2>Notifications</h2>
+        </div>
+        <div class="no-notifications" ng-hide="list.length > 0">
+            No notifications to display
+        </div>
+        <ion-list>
+            <ion-item class="item-text-wrap" ng-repeat="note in list">
+                {{ note.message }} 
+            </ion-item> 
+        </ion-list>
+    </ion-content>
+    
+    <div class="clear-list" ng-click="clearList()" ng-show="list.length > 0">
+        Clear Notifications
+    </div>
+</ion-view>
