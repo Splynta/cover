@@ -25,9 +25,6 @@
         "phonegap-plugin-push": {
             "SENDER_ID": "974156829255",
             "PACKAGE_NAME": "com.cover4insurance.main"
-        },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.cover4insurance.main"
         }
     },
     "dependent_plugins": {}

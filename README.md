@@ -16,7 +16,6 @@ Base app for cover4
 - May need to perform ionic resources --icon to get the icons right, or it won't build properly.
 
 ## Todo
-- Make sure push notifications aren't in debug mode
 - Create factory for contact information
 - Check whether they have turned off push notifications and remove from database if they have
 - Write a script to install plugins & platforms
@@ -36,5 +35,4 @@ The following features are ommitted from the git and need to be installed.
 - cordova plugin add https://github.com/ohh2ahh/AppAvailability.git
 - cordova plugin add org.apache.cordova.device
 - cordova plugin add org.apache.cordova.network-information
-- cordova plugin add cordova-plugin-dialogs **Not currently used - Adds popups to app**
 - bower install ngstorage

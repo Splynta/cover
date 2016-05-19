@@ -38,14 +38,13 @@ angular.module('cover4App.services', [])
             $localStorage.notes.push(note);
         },
         clear: function() {
-            $localStorage.$reset();
+            $localStorage.$reset({notes: []});
         },
         getUnreadCount: function() {
             var count = 0;
             for(var x = 0; x < $localStorage.notes.length; x++) {
                 if(!$localStorage.notes[x].read) {
                     count++;
-                    console.log($localStorage.notes[x].read);
                 } 
             }
             return count;
@@ -56,6 +55,16 @@ angular.module('cover4App.services', [])
                     $localStorage.notes[x].read = true;
                 }
             }
+        },
+        // If the timestamp is already saved in database return true
+        isDuplicate: function(note) {
+            for(var x = 0; x < $localStorage.notes.length; x++) {
+                if(note.timestamp == $localStorage.notes[x].timestamp) {
+                    return true;
+                }
+            }
+            
+            return false;
         }
     }
 })

@@ -4,6 +4,9 @@ angular.module('cover4App.controllers', [])
     $scope.unreadCount = Notifications.getUnreadCount();
     
     $scope.$on("unreadCountChange", function() {
+        /*if($ionicSideMenuDelegate.isOpenLeft()) {
+            $ionicSideMenuDelegate.toggleLeft();
+        }*/
         $scope.unreadCount = Notifications.getUnreadCount();
     });
 })
@@ -70,7 +73,7 @@ angular.module('cover4App.controllers', [])
     
     $scope.clearList = function() {
         Notifications.clear();
-        $scope.list = [];
+        $scope.list = Notifications.getAll();
     };
 })
 
