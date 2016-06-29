@@ -1,7 +1,9 @@
 angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controllers', 'cover4App.services', 'ngCordova', 'ngStorage']) 
 
-.run(function($ionicPlatform, $ionicPopup, $ionicHistory, $http, $cordovaPush, $cordovaBadge, $rootScope, Notifications, StudentInfo) {
+.run(function($ionicPlatform, $ionicPopup, $ionicHistory, $http, $cordovaPush, $cordovaBadge, $rootScope, Policies, Notifications, StudentInfo) {
+    Policies.retrievePolicies();    // Grab the policies before ionic is fully loaded
     var pushnote = null;
+    
     $ionicPlatform.ready(function() {
         /*if(window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -10,7 +12,7 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
         if(window.StatusBar) {
             StatusBar.styleDefault();
         }
-
+        
         // If connected to the internet send push notification token to add to the database
         if(window.Connection) {
             if(navigator.connection.type != Connection.NONE) {
