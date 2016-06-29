@@ -68,3 +68,45 @@ angular.module('cover4App.services', [])
         }
     }
 })
+
+.factory('StudentInfo', function($http) {
+    var list = [{ 
+            title: 'Security Tips: While You\'re Away', 
+            href: 'http://www.cover4insurance.com/security-while-away/',
+            filename: 'whileyoureaway.html'
+        }, { 
+            title: 'Living in a Privately Rented Student House', 
+            href: 'http://www.cover4insurance.com/private-student-house/',
+            filename: 'privatestudenthouse.html'
+        }, {
+            title: 'Top 5 Security Tips from Greater Manchester Police Twitter Chat', 
+            href: 'http://www.cover4insurance.com/top-5-safety-tips-twitter/',
+            filename: 'top5safetytips.html'
+        }, {
+            title: 'Safety Advice: On a Night Out', 
+            href: 'http://www.cover4insurance.com/night-out-safety-tips/',
+            filename: 'nightoutsafety.html'
+        }, { 
+            title: 'Student Security Tips—Ireland', 
+            href: 'http://www.cover4insurance.com/irish-student-security-tips',
+            filename: 'irishstudentsecurity.html'
+        }
+    ];
+    
+    return {
+        getList: function() {
+            return list;
+        },
+        get: function(value) {
+            return list[value];
+        },
+        populateFileInfo: function() {
+            angular.forEach(list, function(value) {
+                $http.get('files/' + value.filename).success(function(data, status, headers, config) {
+                    value.data = data;
+                }).error(function(){
+                });
+            });
+        }
+    }
+})

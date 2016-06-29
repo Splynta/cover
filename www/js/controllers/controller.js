@@ -4,9 +4,6 @@ angular.module('cover4App.controllers', [])
     $scope.unreadCount = Notifications.getUnreadCount();
     
     $scope.$on("unreadCountChange", function() {
-        /*if($ionicSideMenuDelegate.isOpenLeft()) {
-            $ionicSideMenuDelegate.toggleLeft();
-        }*/
         $scope.unreadCount = Notifications.getUnreadCount();
     });
 })
@@ -63,9 +60,10 @@ angular.module('cover4App.controllers', [])
     };
 })
 
-.controller('NotificationCtrl', function($scope, $rootScope, Notifications) {
+.controller('NotificationCtrl', function($scope, $rootScope, Notifications, $cordovaBadge) {
     $scope.$on('$ionicView.enter', function () {
         Notifications.markAllRead();
+        $cordovaBadge.clear();
         $rootScope.$broadcast("unreadCountChange");
     });
     
@@ -77,14 +75,20 @@ angular.module('cover4App.controllers', [])
     };
 })
 
-.controller('StudentInfoCtrl', function($scope) {
-    $scope.links = [
-        { title: 'Security Tips: While You\'re Away', href: 'http://www.cover4insurance.com/security-while-away/' },
-        { title: 'Living in a Privately Rented Student House', href: 'http://www.cover4insurance.com/private-student-house/'},
-        { title: 'Top 5 Security Tips from Greater Manchester Police Twitter Chat', href: 'http://www.cover4insurance.com/top-5-safety-tips-twitter/'},
-        { title: 'Safety Advice: On a Night Out', href: 'http://www.cover4insurance.com/night-out-safety-tips/'},
-        { title: 'Student Security Tips—Ireland', href: 'http://www.cover4insurance.com/irish-student-security-tips'}
-    ];
+.controller('StudentInfoCtrl', function($scope, $http, StudentInfo) {
+    $scope.links = StudentInfo.getList();
+    
+    $scope.openLink = function(link) {
+        window.open(link, '_system', 'location=no');
+    };
+})
+
+.controller('StudentInfoDetailsCtrl', function($scope, $stateParams, StudentInfo) {
+    if (StudentInfo.get($stateParams.id) == '') {
+        StudentInfo.populateFileInfo();
+    } else {
+        $scope.info = StudentInfo.get($stateParams.id);
+    }
     
     $scope.openLink = function(link) {
         window.open(link, '_system', 'location=no');

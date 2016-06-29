@@ -194,3 +194,31 @@ ion-side-menu {
     font-size: 15px;
     margin-top: 20px;
 }
+
+.bar .buttons-left span {
+    display: inline-block;
+}
+
+.menu-icon-count {
+    font-size: 9px;
+    line-height: 15px;
+    vertical-align: top;
+    padding: 0 5px;
+}
+
+.student-info {
+    padding: 14px;
+}
+
+.bullet-list {
+    list-style: circle;
+    padding-left: 14px;
+}
+
+.student-info ul {
+    margin-bottom: 14px;
+}
+
+.student-info ul li {
+    margin-bottom: 6px;
+}

@@ -1,6 +1,6 @@
 angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controllers', 'cover4App.services', 'ngCordova', 'ngStorage']) 
 
-.run(function($ionicPlatform, $ionicPopup, $ionicHistory, $http, $cordovaPush, $rootScope, Notifications) {
+.run(function($ionicPlatform, $ionicPopup, $ionicHistory, $http, $cordovaPush, $cordovaBadge, $rootScope, Notifications, StudentInfo) {
     var pushnote = null;
     $ionicPlatform.ready(function() {
         /*if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -15,7 +15,7 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
         if(window.Connection) {
             if(navigator.connection.type != Connection.NONE) {
                 var push = new Ionic.Push({
-                    "debug": false,
+                    "debug": true,
                     "onNotification": function(notification) {
                         var note = {
                             read: false,
@@ -24,18 +24,26 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
                             timestamp: notification._payload.timestamp
                         }
                         
+                        // If when called the notification has not been added to the list
+                        // then add it to the list
                         if(!Notifications.isDuplicate(note)) {
                             Notifications.add(note);
-                            $rootScope.$apply();
-                            $rootScope.$broadcast("unreadCountChange");
                             if(notification._raw.additionalData.foreground) {
                                 $ionicPopup.alert({ title: 'Notification Received', content: notification.text});
+                                if($ionicHistory.currentStateName() == 'app.notifications') {
+                                    Notifications.markAllRead();
+                                }
                             }
                         }
                         
-                        console.log(JSON.stringify(notification));
+                        if(Notifications.getUnreadCount() && $cordovaBadge.hasPermission()) {
+                            $cordovaBadge.set(Notifications.getUnreadCount());
+                        }
+                        
+                        $rootScope.$apply();
+                        $rootScope.$broadcast("unreadCountChange");
                     },
-                    "pluginConfig": {
+                    "pluginConfig": { 
                         "android":{
                             "icon":"c4icon",
                             "iconColor": "black"
@@ -45,13 +53,13 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
                             "sound": true,
                             "alert":true
                         }
-                    }
+                    } 
                 });
 
-                push.register(function(token) {
+                /*push.register(function(token) {
                     push.saveToken(token);  // persist the token in the Ionic Platform
 
-                    // Send token to url to save to database table
+                    // Send token to url to save to the database table
                     var url = "http://www.standard.dacaninternet.co.uk/registertoken.php";
                     var post = $http({
                         method: 'POST',
@@ -61,17 +69,20 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
                         },
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
                     });
-                });
+                });*/
                 
+                // If app is resumed on the notifications page then mark all as read and refresh unread count
                 document.addEventListener('resume', function() {
                     if($ionicHistory.currentStateName() == 'app.notifications') {
-                        // Mark all as read and refresh the unread list
                         Notifications.markAllRead();
+                        $cordovaBadge.clear();
                         $rootScope.$broadcast("unreadCountChange");
                     }
                 });
             }
         }
+        
+        StudentInfo.populateFileInfo();
     });
 })
 
@@ -116,6 +127,16 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
         }
     })
     
+    .state('app.studentinfo.details', {
+        url: '/studentinfo/details/:id',
+        views: {
+            'menuContent@app': {
+                templateUrl: 'views/studentinfodetails.html',
+                controller: 'StudentInfoDetailsCtrl'
+            }
+        }
+    })
+    
     .state('app.contact', {
         url: '/contact',
         views: {
@@ -137,3 +158,25 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
     
     $urlRouterProvider.otherwise('/app/home');
 })
+
+.directive('compile', ['$compile', function ($compile) {
+    return function(scope, element, attrs) {
+        scope.$watch(
+            function(scope) {
+                // watch the 'compile' expression for changes
+                return scope.$eval(attrs.compile);
+            },
+            function(value) {
+                // when the 'compile' expression changes
+                // assign it into the current DOM
+                element.html(value);
+
+                // compile the new DOM and link it to the current
+                // scope.
+                // NOTE: we only compile .childNodes so that
+                // we don't get into infinite loop compiling ourselves
+                $compile(element.contents())(scope);
+            }
+        );
+    };
+}])

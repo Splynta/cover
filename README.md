@@ -13,7 +13,7 @@ Base app for cover4
 ```
 
 ## Issues
-- May need to perform ionic resources --icon to get the icons right, or it won't build properly.
+- May need to perform ionic resources or it won't build properly.
 
 ## Todo
 - Create factory for contact information
@@ -36,3 +36,4 @@ The following features are ommitted from the git and need to be installed.
 - cordova plugin add org.apache.cordova.device
 - cordova plugin add org.apache.cordova.network-information
 - bower install ngstorage
+- cordova plugin add https://github.com/katzer/cordova-plugin-badge.git

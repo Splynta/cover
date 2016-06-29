@@ -5,8 +5,11 @@
             <p>Helpful security advice for students</p>
         </div>
         
-        <ion-list ng-repeat="link in links">
-            <ion-item class="item-text-wrap" ng-click="openLink(link.href)">
+        <ion-list ng-repeat="link in links track by $index">
+            <!--<ion-item class="item-text-wrap" ng-click="openLink(link.href)">
+                {{ link.title }}
+            </ion-item>-->
+            <ion-item class="item-text-wrap" ui-sref="app.studentinfo.details({id: $index})">
                 {{ link.title }}
             </ion-item>
         </ion-list>
