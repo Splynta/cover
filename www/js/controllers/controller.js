@@ -1,20 +1,30 @@
 angular.module('cover4App.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicSideMenuDelegate, Notifications) {
+.controller('AppCtrl', function($scope, $ionicSideMenuDelegate, $cordovaInAppBrowser, Notifications) {
     $scope.unreadCount = Notifications.getUnreadCount();
     
     $scope.$on("unreadCountChange", function() {
         $scope.unreadCount = Notifications.getUnreadCount();
     });
+    
+    $scope.openLink = function(href) {
+        var options = {
+            location: 'no',
+            clearcache: 'no',
+            toolbar: 'yes',
+            zoom: 'yes',
+            closebuttoncaption: 'Go Back To The App',
+            enableviewportscale: 'yes'
+        };
+
+        $scope.openLink = function(href) {
+            $cordovaInAppBrowser.open(href, '_blank', options);
+        };
+    };
 })
 
 .controller('PoliciesCtrl', function($scope, Policies) {
     $scope.policies = Policies.getAll();
-    
-    $scope.loadUrl = function(id) {
-        var policy = Policies.get(id);
-        window.open(policy.href, '_system');
-    };
 })
 
 .controller('PolicyDetailCtrl', function($scope, $stateParams, Policies) {

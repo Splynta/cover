@@ -58,7 +58,7 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
                     } 
                 });
 
-                /*push.register(function(token) {
+                push.register(function(token) {
                     push.saveToken(token);  // persist the token in the Ionic Platform
 
                     // Send token to url to save to the database table
@@ -71,7 +71,7 @@ angular.module('cover4App', ['ionic','ionic.service.core', 'cover4App.controller
                         },
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
                     });
-                });*/
+                });
                 
                 // If app is resumed on the notifications page then mark all as read and refresh unread count
                 document.addEventListener('resume', function() {

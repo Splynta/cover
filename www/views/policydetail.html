@@ -11,7 +11,8 @@
             <h2>{{policy.title}} Information</h2>
         </div>
         
-        <p><a ng-href="{{policy.href}}" onclick="window.open(this.href, '_system'); return false;">Visit Site</a></p>
+        <p><a class="btn-receive-quote" ng-controller="AppCtrl" ng-click="openLink(policy.href)">Receive a quote</a></p>
         <div class="student-info" compile="policy.text"></div>
+        <p><a class="btn-receive-quote" ng-controller="AppCtrl" ng-click="openLink(policy.href)" style="margin-bottom: 20px;">Receive a quote</a></p>
     </ion-content>
 </ion-view>
